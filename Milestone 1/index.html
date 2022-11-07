@@ -59,10 +59,10 @@
 
         <div class="chat-list">
           <ul>
-            <li class="single-chat active">
-              <img src="img/avatar_1.jpg" alt="">
+            <li v-for="(obj, indice) in contacts" class="single-chat">
+              <img :src="'img/avatar' + obj.avatar" alt="">
               <div class="info">
-                <h4>Michele</h4>
+                <h4>{{obj.name}}</h4>
                 <span>Ultimo accesso oggi alle 12:00</span>
               </div>
             </li>
@@ -91,8 +91,18 @@
 
         <div class="chat">
           <div class="focus-chat">
-            <p class="send">ciao</p>
-            <p class="received">bene</p>
+            <div class="received">
+              <span>ciao</span>
+            </div>
+            <div class="send">
+              <span>bene</span>
+            </div>
+            <div class="received">
+              <span>ciao</span>
+            </div>
+            <div class="send">
+              <span>bene</span>
+            </div>
           </div>
         </div>
 

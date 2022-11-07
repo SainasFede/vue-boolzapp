@@ -104,7 +104,6 @@ img{
 .ricerca{
   background-color: #E9ECEF;
   padding: 5px;
-  height: 35px;
   display: flex;
   align-items: center;
 }
@@ -135,6 +134,7 @@ img{
 .single-chat{
   display: flex;
   padding: 10px;
+  border-bottom: 1px solid lightgray;
 }
 
 .active{
@@ -152,11 +152,6 @@ img{
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.focus-chat{
-  width: 80%;
-  height: 90%;
 }
 
 .to-write{
@@ -186,10 +181,29 @@ img{
   cursor: pointer;
 }
 
+.focus-chat{
+  width: 80%;
+  height: 90%;
+  flex-direction: column;
+}
+
 .send{
   background-color: #d5f9ba;
-  text-align: right;
   padding: 10px;
+  margin-bottom: 10px;
+  width: 20%;
+  align-self: flex-end;
+  margin-left: auto;
+  border-radius: 5px;
+}
+
+.received{
+  padding: 10px;
+  background-color: white;
+  width: 20%;
+  margin-bottom: 10px;
+  align-self: flex-start;
+  border-radius: 5px;
 }
 
 
