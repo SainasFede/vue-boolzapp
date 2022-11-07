@@ -1,0 +1,200 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* Back color */
+.maxi-container{
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(
+    #009688 13%,
+    #dbdbd2 0%,
+    #dadbd5 87%
+  );
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Back color */
+
+/* Struttura container app */
+.container{
+  width: 70%;
+  height: 95%;
+  display: flex;
+}
+
+.col-left{
+  width: 35%;
+  height: 100%;
+  min-width: 200px;
+  border-right: 0.5px solid lightgray;
+}
+
+.col-right{
+  width:65%;
+  height: 100%;
+  min-width: 500px;
+}
+
+.rowtop{
+  background-color: #eaeaea;
+  width: 100%;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  justify-content: space-between;
+}
+
+.rowtop .icons{
+  display: flex;
+  align-items: center;
+}
+
+.rowtop .icons i{
+  margin: 0 10px;
+  color: #b1b1b1;
+  cursor: pointer;
+}
+
+.img-profile{
+  align-items: center;
+  display: flex;
+}
+
+img{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.info{
+  margin-left: 10px;
+  font-size: 0.9rem;
+}
+
+.info span{
+  color: #b1b1b1;
+}
+
+/* Colonna sinistra */
+.notifiche{
+  background-color: #8edafc;
+  display: flex;
+  align-items: center;
+  height: 60px;
+  padding: 10px;
+}
+
+.notifiche .info span{
+  text-decoration: underline;
+}
+
+.bell{
+  background-color: white;
+  padding: 14px;
+  border-radius: 50%;
+  color: #8edafc;
+  cursor: pointer;
+}
+
+.ricerca{
+  background-color: #E9ECEF;
+  padding: 5px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+}
+
+.in-ric{
+  background-color: white;
+  border-radius: 2px;
+  width: 100%;
+  color: #b1b1b1;
+}
+
+.in-ric i{
+  padding: 5px 20px;
+  cursor: pointer;
+}
+
+.in-ric input{
+  outline: none;
+  border: none;
+  width: 85%;
+}
+
+.chat-list{
+  background-color: white;
+  height: calc(100% - 155px);
+}
+
+.single-chat{
+  display: flex;
+  padding: 10px;
+}
+
+.active{
+  background-color: #e9ebeb;
+}
+
+/* Colonna sinistra */
+
+/* Colonna destra */
+
+.chat{
+ background-image: url('img//mine.jpg');
+  width: 100%;
+  height: calc(100% - 120px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.focus-chat{
+  width: 80%;
+  height: 90%;
+}
+
+.to-write{
+  height: 60px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #eaeaea;
+}
+
+.to-write input{
+  padding: 10px;
+  width: 85%;
+  outline: none;
+  border: none;
+}
+
+.icon-m{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 5%;
+  line-height: 60px;
+  color: #b1b1b1;
+  cursor: pointer;
+}
+
+.send{
+  background-color: #d5f9ba;
+  text-align: right;
+  padding: 10px;
+}
+
+
+
+
+/* Colonna destra */
+
+/* Struttura container app */
