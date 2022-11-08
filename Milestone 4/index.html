@@ -53,17 +53,22 @@
         <div class="ricerca">
           <div class="in-ric">
             <i class="fa-solid fa-magnifying-glass"></i>
-            <input type="text" placeholder="Cerca o inizia una nuova chat">
+            <input
+            v-model="findChat"
+            @keyup="searchChat()" 
+            type="text" 
+            placeholder="Cerca o inizia una nuova chat">
           </div>
         </div>
 
         <div class="chat-list">
           <ul>
             <li
-             v-for="(obj, index) in contacts" 
+             v-for="(obj, index) in contacts"
+             v-show="obj.id" 
              class="single-chat"
-             @click="selectChat(index)"
-             :click="{'active' : obj}">
+             @click="selectChat(index), obj.profile = !obj.profile"
+             :class="{'active': index === activeProfile }">
               <img :src="obj.avatar" alt="">
               <div class="info">
                 <h4>{{obj.name}}</h4>
@@ -113,7 +118,7 @@
 
           <input
           v-model="myNewMsg"
-          @keyup.enter=""
+          @keyup.enter="sendMyMsg()"
           type="text" placeholder="Scrivi un messaggio">
 
           <div class="icon-m">

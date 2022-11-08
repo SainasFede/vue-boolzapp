@@ -199,6 +199,8 @@ createApp({
         }
         ],
         activeProfile: 0,
+        myNewMsg: '',
+        timeMsg: new Date()
     };
     
   },
@@ -206,5 +208,17 @@ createApp({
     selectChat(index){
       this.activeProfile = index;
     },
+
+    sendMyMsg(){
+      const msgComplete = {
+        date: '7/1172022',
+        time: this.timeMsg.getHours() + ':' + this.timeMsg.getMinutes(),
+        message: this.myNewMsg,
+        status: 'sent'
+      }
+
+      this.contacts[activeProfile].messages.push(msgComplete);
+      this.myNewMsg = '';
+    }
   }
 }).mount('#app');

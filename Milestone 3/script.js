@@ -7,8 +7,6 @@ createApp({
         {
           name: 'Michele',
           avatar: 'img/avatar_1.jpg',
-          profile: true,
-          visible: true,
           messages: [
               {
               date: '10/01/2020',
@@ -33,8 +31,6 @@ createApp({
         {
           name: 'Fabio',
           avatar: 'img/avatar_2.jpg',
-          profile: false,
-          visible: true,
           messages: [
               {
               date: '20/03/2020',
@@ -61,8 +57,6 @@ createApp({
         {
           name: 'Samuele',
           avatar: 'img/avatar_3.jpg',
-          profile: false,
-          visible: true,
           messages: [
               {
               date: '28/03/2020', time: '10:10',
@@ -88,8 +82,6 @@ createApp({
         {
           name: 'Alessandro B.',
           avatar: 'img/avatar_4.jpg',
-          profile: false,
-          visible: true,
           messages: [
               {
               date: '10/01/2020', time: '15:30',
@@ -108,8 +100,6 @@ createApp({
         {
           name: 'Alessandro L.',
           avatar: 'img/avatar_5.jpg',
-          profile: false,
-          visible: true,
           messages: [
               {
               date: '10/01/2020', time: '15:30',
@@ -128,8 +118,6 @@ createApp({
         {
           name: 'Claudia',
           avatar: 'img/avatar_6.jpg',
-          profile: false,
-          visible: true,
           messages: [
               {
               date: '10/01/2020',
@@ -154,8 +142,6 @@ createApp({
         {
           name: 'Federico',
           avatar: 'img/avatar_7.jpg',
-          profile: false,
-          visible: true,
           messages: [
               {
               date: '10/01/2020',
@@ -174,9 +160,7 @@ createApp({
   
         {
           name: 'Davide',
-          profile: false,
           avatar: 'img/avatar_8.jpg',
-          activeChat: '',
           messages: [
               {
               date: '10/01/2020',
@@ -199,6 +183,8 @@ createApp({
         }
         ],
         activeProfile: 0,
+        myNewMsg: '',
+        timeMsg: new Date(),
     };
     
   },
@@ -206,5 +192,28 @@ createApp({
     selectChat(index){
       this.activeProfile = index;
     },
+
+    sendMyMsg(){
+      const msgComplete = {
+        date: '7/11/2022',
+        time: this.timeMsg.getHours() + ':' + this.timeMsg.getMinutes(),
+        message: this.myNewMsg,
+        status: 'sent'
+      }
+      setTimeout(this.botMsg, 3000); 
+      this.contacts[this.activeProfile].messages.push(msgComplete);
+      this.myNewMsg = '';
+    },
+
+    botMsg(){
+      const botword = {
+        date: '7/11/2022',
+        time: this.timeMsg.getHours() + ':' + this.timeMsg.getMinutes(),
+        message: 'ok',
+        status: 'received'
+      }
+      this.contacts[this.activeProfile].messages.push(botword);
+    },
+
   }
 }).mount('#app');

@@ -8,10 +8,9 @@
   width: 100%;
   height: 100vh;
   background: linear-gradient(
-    #009688 0%,
-    #009688 15%,
-    #dddbd1 15%,
-    #d2dbdc 85%
+    #009688 13%,
+    #dbdbd2 0%,
+    #dadbd5 87%
   );
   display: flex;
   justify-content: center;

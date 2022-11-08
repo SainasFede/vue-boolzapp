@@ -113,7 +113,7 @@
 
           <input
           v-model="myNewMsg"
-          @keyup.enter=""
+          @keyup.enter="sendMyMsg()"
           type="text" placeholder="Scrivi un messaggio">
 
           <div class="icon-m">
