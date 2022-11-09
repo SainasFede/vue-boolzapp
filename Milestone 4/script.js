@@ -1,5 +1,14 @@
 const { createApp } = Vue;
 
+const DateTime = luxon.DateTime;
+console.log(DateTime);
+
+const now = DateTime.now();
+console.log(now.minute, now.second);
+
+const timeMsg = now.setLocale('it').toLocaleString(DateTime.TIME_SIMPLE);
+console.log(timeMsg);
+
 createApp({
   data(){
     return{
@@ -192,7 +201,6 @@ createApp({
         ],
         activeProfile: 0,
         myNewMsg: '',
-        timeMsg: new Date(),
         findChat: ''
     };
     
@@ -205,7 +213,7 @@ createApp({
     sendMyMsg(){
       const msgComplete = {
         date: '7/11/2022',
-        time: this.timeMsg.getHours() + ':' + this.timeMsg.getMinutes(),
+        time: timeMsg,
         message: this.myNewMsg,
         status: 'sent'
       }
@@ -217,7 +225,7 @@ createApp({
     botMsg(){
       const botword = {
         date: '7/11/2022',
-        time: this.timeMsg.getHours() + ':' + this.timeMsg.getMinutes(),
+        time: timeMsg,
         message: 'ok',
         status: 'received'
       }
