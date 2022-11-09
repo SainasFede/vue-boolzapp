@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital@0;1&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/luxon/3.1.0/luxon.min.js" integrity="sha512-79nhbkASdW5wurW8DtF9Vd7BEDKdTbCKkh87lW6W3tk9T4L9Bc58MzmvRzjMcFCSKpjkoRjwzrTdfOa5lkfJ5Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script src='https://unpkg.com/vue@3'></script>
+  <link rel="stylesheet" href="style.css">
+
+  <title>Boolzapp</title>
+</head>
+<body>
+  <div class="maxi-container">
+    <div class="top"></div>
+    <div class="under"></div>
+
+    <div id="app" class="container">
+
+      <div class="col-left">
+
+        <div class="rowtop profile">
+          <div class="img-profile">
+            <img src="img/avatar_io.jpg" alt="">
+            <h4>Sofia</h4>
+          </div>
+
+          <div class="icons">
+            <i class="fa-solid fa-circle-notch"></i>
+            <i class="fa-solid fa-message"></i>
+            <i class="fa-solid fa-ellipsis-vertical"></i>
+          </div>
+        </div>
+
+        <div class="notifiche">
+          <div class="bell">
+            <i class="fa-solid fa-bell-slash"></i>
+          </div>
+
+          <div class="info">
+            <p>Ricevi notifiche di nuovi messaggi</p>
+            <span>Attiva notifiche dekstop</span>
+          </div>
+
+        </div>
+
+        <div class="ricerca">
+          <div class="in-ric">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input
+            v-model="findChat"
+            @keyup="searchChat()" 
+            type="text" 
+            placeholder="Cerca o inizia una nuova chat">
+          </div>
+        </div>
+
+        <div class="chat-list">
+          <ul>
+            <li
+             v-for="(obj, index) in contacts"
+             v-show="obj.id" 
+             class="single-chat"
+             @click="selectChat(index), obj.profile = !obj.profile"
+             :class="{'active': index === activeProfile }">
+              <img :src="obj.avatar" alt="">
+              <div class="info">
+                <h4>{{obj.name}}</h4>
+                <span>Ultimo accesso oggi alle 12:00</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="col-right">
+
+        <div class="rowtop">
+          <div class="img-profile">
+            <img :src="contacts[activeProfile].avatar" alt="">
+            <div class="info">
+              <h4>{{contacts[activeProfile].name}}</h4>
+              <span>Ultimo accesso oggi alle 12:00</span>
+            </div>
+          </div>
+
+          <div class="icons">
+            <i class="fa-solid fa-circle-notch"></i>
+            <i class="fa-solid fa-message"></i>
+            <i class="fa-solid fa-ellipsis-vertical"></i>
+          </div>
+        </div>
+
+        <div class="chat">
+          <div class="focus-chat">
+            <div
+            class="msg"
+            v-for="(chat, index) in contacts[activeProfile].messages" 
+            :class="chat.status"
+            @mouseover="openOption(index)" 
+            @mouseleave="closeOption(index)"
+            >
+              <p>{{ chat.message }}</p>
+              <span class="time">{{ chat.time }}</span>
+
+              <div
+              v-show="chat.showMenu" 
+              class="">
+                <p>Info messaggio</p>
+                <p>Elimina messaggio</p>
+              </div>
+              <i
+              @click="menuOptionOn(index)"
+              v-show="chat.option" 
+              class="fa-solid fa-ellipsis option"></i>
+            </div>
+           
+          </div>
+        </div>
+
+        <div class="to-write">
+          <div class="icon-m">
+            <i class="fa-regular fa-face-smile"></i>
+          </div>
+
+          <input
+          v-model="myNewMsg"
+          @keyup.enter="sendMyMsg()"
+          type="text" placeholder="Scrivi un messaggio">
+
+          <div class="icon-m">
+            <i class="fa-solid fa-microphone"></i>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+  <script src="script.js"></script>
+</body>
+</html>

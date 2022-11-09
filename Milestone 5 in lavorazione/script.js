@@ -22,18 +22,24 @@ createApp({
               date: '10/01/2020',
               time: '15:30',
               message: 'Hai portato a spasso il cane?',
-              status: 'sent'
+              status: 'sent',
+              option: false,
+              showMenu: false
               },
               {
               date: '10/01/2020', time: '15:50',
               message: 'Ricordati di stendere i panni',
-              status: 'sent'
+              status: 'sent',
+              option: false,
+              showMenu: false
               },
               {
                 date: '10/01/2020 16:15:22',
                 message: 'Tutto fatto!',
-                time: '15:30',
-                status: 'received'
+                status: 'received',
+                time: '16:30',
+                option: false,
+                showMenu: false
                 }
           ],
 
@@ -48,19 +54,25 @@ createApp({
               date: '20/03/2020',
               time: '16:30',
               message: 'Ciao come stai?',
-              status: 'sent'
+              status: 'sent',
+              option: false,
+              showMenu: false
               },
               {
               date: '20/03/2020',
               time: '16:30',
               message: 'Bene grazie! Stasera ci vediamo?',
-              status: 'received'
+              status: 'received',
+              option: false,
+              showMenu: false
               },
               {
               date: '20/03/2020',
               time: '16:35',
               message: 'Mi piacerebbe ma devo andare a fare la spesa.',
-              status: 'sent'
+              status: 'sent',
+              option: false,
+              showMenu: false
               }
           ],
 
@@ -74,19 +86,25 @@ createApp({
               {
               date: '28/03/2020', time: '10:10',
               message: 'La Marianna va in campagna',
-              status: 'received'
+              status: 'received',
+              option: false,
+              showMenu: false
               },
               {
               date: '28/03/2020',
               time: '10:20',
               message: 'Sicuro di non aver sbagliato chat?',
-              status: 'sent'
+              status: 'sent',
+              option: false,
+              showMenu: false
               },
               {
               date: '28/03/2020',
               time: '16:15',
               message: 'Ah scusa!',
-              status: 'received'
+              status: 'received',
+              option: false,
+              showMenu: false
               }
           ],
 
@@ -100,12 +118,16 @@ createApp({
               {
               date: '10/01/2020', time: '15:30',
               message: 'Lo sai che ha aperto una nuova pizzeria?',
-              status: 'sent'
+              status: 'sent',
+              option: false,
+              showMenu: false
               },
               {
               date: '10/01/2020', time: '15:50',
               message: 'Si, ma preferirei andare al cinema',
-              status: 'received'
+              status: 'received',
+              option: false,
+              showMenu: false
               }
           ],
 
@@ -119,12 +141,16 @@ createApp({
               {
               date: '10/01/2020', time: '15:30',
               message: 'Ricordati di chiamare la nonna',
-              status: 'sent'
+              status: 'sent',
+              option: false,
+              showMenu: false
               },
               {
               date: '10/01/2020', time: '15:50',
               message: 'Va bene, stasera la sento',
-              status: 'received'
+              status: 'received',
+              option: false,
+              showMenu: false
               }
           ],
 
@@ -139,17 +165,23 @@ createApp({
               date: '10/01/2020',
               time: '15:30',
               message: 'Ciao Claudia, hai novità?',
-              status: 'sent'
+              status: 'sent',
+              option: false,
+              showMenu: false
               },
               {
               date: '10/01/2020', time: '15:50',
               message: 'Non ancora',
-              status: 'received'
+              status: 'received',
+              option: false,
+              showMenu: false
               },
               {
               date: '10/01/2020', time: '15:51',
               message: 'Nessuna nuova, buona nuova',
-              status: 'sent'
+              status: 'sent',
+              option: false,
+              showMenu: false
               }
           ],
 
@@ -164,12 +196,16 @@ createApp({
               date: '10/01/2020',
               time: '15:30',
               message: 'Fai gli auguri a Martina che è il suo compleanno!',
-              status: 'sent'
+              status: 'sent',
+              option: false,
+              showMenu: false
               },
               {
               date: '10/01/2020', time: '15:50',
               message: 'Grazie per avermelo ricordato, le scrivo subito!',
-              status: 'received'
+              status: 'received',
+              option: false,
+              showMenu: false
               }
           ],
 
@@ -184,17 +220,23 @@ createApp({
               date: '10/01/2020',
               time: '15:30',
               message: 'Ciao, andiamo a mangiare la pizza stasera?',
-              status: 'received'
+              status: 'received',
+              option: false,
+              showMenu: false
               },
               {
               date: '10/01/2020', time: '15:50',
               message: 'No, l\'ho già mangiata ieri, ordiniamo sushi!',
-              status: 'sent'
+              status: 'sent',
+              option: false,
+              showMenu: false
               },
               {
               date: '10/01/2020', time: '15:51',
               message: 'OK!!',
-              status: 'received'
+              status: 'received',
+              option: false,
+              showMenu: false
               }
           ],
 
@@ -216,7 +258,9 @@ createApp({
         date: '7/11/2022',
         time: timeMsg,
         message: this.myNewMsg,
-        status: 'sent'
+        status: 'sent',
+        option: false,
+        showMenu: false
       }
       setTimeout(this.botMsg, 3000); 
       this.contacts[this.activeProfile].messages.push(msgComplete);
@@ -228,8 +272,9 @@ createApp({
         date: '7/11/2022',
         time: timeMsg,
         message: 'ok',
-        status: 'received'
-        
+        status: 'received',
+        option: false,
+        showMenu: false
       }
       this.contacts[this.activeProfile].messages.push(botword);
     },
@@ -242,6 +287,27 @@ createApp({
           obj.id = true
         }
       });
+    },
+
+    openOption(index){
+      this.contacts[this.activeProfile].messages[index].option = true;
+  },
+
+    closeOption(index){
+    this.contacts[this.activeProfile].messages[index].option = false;
+  },
+
+    menuOptionOn(index){
+      
+      this.contacts[this.activeProfile].messages[index].showMenu = true;
+      this.menuOptionOf();
+    },
+
+    menuOptionOf(){
+      this.contacts[this.activeProfile].messages.forEach(chat => {
+        chat.showMenu = false;
+      })
     }
+
   }
 }).mount('#app');
